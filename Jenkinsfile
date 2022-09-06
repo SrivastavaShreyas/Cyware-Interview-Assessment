@@ -6,6 +6,10 @@ pipeline {
     }
     agent any
     stages {
+        stage('Initialize'){
+            def dockerHome = tool 'Docker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage('Cloning our Git') {
             steps {
                 git([url: 'https://github.com/SrivastavaShreyas/Cyware-Interview-Assessment.git', branch: 'main', credentialsId: 'github_personal_id'])
