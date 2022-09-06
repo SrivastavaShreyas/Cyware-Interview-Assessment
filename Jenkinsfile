@@ -6,12 +6,13 @@ pipeline {
     }
     agent any
     stages {
-        stage('Initialize'){
+        stage('Initialize') {
             steps{
-                def dockerHome = tool 'Docker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
+                script{
+                    def dockerHome = tool 'Docker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                } 
             }
-            
         }
         stage('Cloning our Git') {
             steps {
