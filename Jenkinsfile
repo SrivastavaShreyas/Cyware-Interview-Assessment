@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "2003103/cyware"
+        registry = "cyware"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
@@ -23,8 +23,8 @@ pipeline {
             steps{
                 script {
                     echo env.BUILD_ID
-                    echo registry:{env.BUILD_ID}
-                    // dockerImage = docker.build(registry:{env.BUILD_ID})
+                    // echo registry:{env.BUILD_ID}
+                    dockerImage = docker.build(nginx:latest)
                 }
             }
         }
