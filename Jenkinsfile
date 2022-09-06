@@ -1,6 +1,5 @@
 pipeline {
     environment {
-        registry = "cyware"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
@@ -24,7 +23,7 @@ pipeline {
                 script {
                     echo env.BUILD_ID
                     // echo registry:{env.BUILD_ID}
-                    dockerImage = docker.build('mysql:5')
+                    dockerImage = docker.build('2003103/cyware')
                     
                 }
             }
