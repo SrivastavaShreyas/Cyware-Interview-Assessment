@@ -14,7 +14,7 @@ pipeline {
         stage('Building our image') {
             steps{
                 script {
-                    dockerImage = docker.build cyware_assessment + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Cleaning up') {
             steps{
-                sh "docker rmi $cyware_assessment:$BUILD_NUMBER"
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
     }
