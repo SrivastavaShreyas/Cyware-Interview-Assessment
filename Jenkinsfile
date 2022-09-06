@@ -2,7 +2,6 @@ pipeline {
     environment {
         registry = "2003103/cyware"
         registryCredential = 'dockerhub_id'
-        dockerImage = ''
     }
     agent any
     stages {
@@ -22,7 +21,7 @@ pipeline {
         stage('Building our image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    def dockerImage = docker.build(registry:{env.BUILD_ID})
                 }
             }
         }
@@ -30,7 +29,7 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
+                    dockerImage.push('latest')
                     }
                 }
             }
