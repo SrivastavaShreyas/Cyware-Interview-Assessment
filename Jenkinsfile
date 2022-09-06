@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Cloning our Git') {
             steps {
-                git 'https://github.com/SrivastavaShreyas/Cyware-Interview-Assessment.git'
+                git([url: 'https://github.com/SrivastavaShreyas/Cyware-Interview-Assessment.git', brnach: 'main', credentialsId: 'github_personal_id'])
             }
         }
         stage('Building our image') {
