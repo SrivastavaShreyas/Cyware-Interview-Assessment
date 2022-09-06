@@ -24,7 +24,7 @@ pipeline {
                 script {
                     echo env.BUILD_ID
                     // echo registry:{env.BUILD_ID}
-                    dockerImage = docker.build(nginx:latest)
+                    dockerImage = docker.build(nginx:1.23.1)
                     
                 }
             }
