@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "2003103/cywarey"
+        registry = "2003103/cyware"
         registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
