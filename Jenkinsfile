@@ -24,7 +24,7 @@ pipeline {
                 script {
                     echo env.BUILD_ID
                     // echo registry:{env.BUILD_ID}
-                    dockerImage = docker.build(mysql:5)
+                    dockerImage = docker.build('mysql:5')
                     
                 }
             }
